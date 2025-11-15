@@ -7,10 +7,10 @@
   };
 
   outputs =
+    inputs@{ flake-parts, ... }:
     let
       version = "1.0.0";
     in
-    inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
       ];
@@ -49,6 +49,7 @@
 
           tools = with pkgs; [
             tree
+            openssh
           ];
 
           default-packages = [
